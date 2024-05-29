@@ -1,0 +1,39 @@
+{
+    "name": "OpenVPN Client",
+    "version": "0.2.9",
+    "slug": "openvpn-client",
+    "description": "Connect Hassio to a remote VPN Server",
+    "startup": "application",
+    "boot": "auto",
+    "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+    "host_network": true,
+    "privileged": ["NET_ADMIN"],
+    "options": {
+      "config" : [
+        "client",
+        "ca ca.crt",
+        "port 6123",
+        "cert client.crt",
+        "key client.key",
+        "auth SHA256",
+        "dev tun",
+        "proto tcp",
+        "resolv-retry infinite",
+        "nobind",
+        "persist-key",
+        "persist-tun",
+        "remote-cert-tls server",
+        "tls-auth ta.key 1",
+        "cipher AES-256-CBC",
+        "comp-lzo",
+        "remote <SERVER ADRESS> <PORT>"
+        ]
+    },
+    "schema": {
+      "config" : ["str"]
+    },
+    "ports": {
+      "8090/tcp" : 8090
+    },
+    "map" : ["share:rw"]
+  }
