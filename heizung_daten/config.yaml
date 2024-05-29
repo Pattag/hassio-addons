@@ -1,0 +1,7 @@
+name: "Heizung Daten"
+description: "Heizung Daten"
+version: "1.0.5"
+slug: "heizung_daten"
+init: false
+arch:
+  - armv7
